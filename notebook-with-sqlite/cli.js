@@ -122,7 +122,7 @@ Known filters: ${filterText || "none"}
 Generate an optimized SQLite query for the user question:
 "${userQuestion}"
 
-Only return the optimized SQL query.`.trim();
+Only return the optimized SQL query. Apply max limit of 30 rows`.trim();
 }
 function buildBasicSQLPrompt(schema, userQuestion) {
   return `Given the schema: ${schema}, 
@@ -356,5 +356,5 @@ program
   .action((opts) => {
     interactiveShell(opts.db, opts.table);
   });
-// node notebook-with-sqlite/cli.js ask -d "/Users/gramcha/sources/notebooklm-poc/output-sqlite/isr.db" -t "Raw_Data"
+// node notebook-with-sqlite/cli.js shell -d "/Users/gramcha/sources/notebooklm-poc/output-sqlite/isr.db" -t "Raw_Data"
 program.parse(process.argv);
